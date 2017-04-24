@@ -13,10 +13,19 @@ class FgbusupportModelStatuses extends JModelList{
 	{
 		$db = JFactory::getDBO();
 		$query = $db->getQuery(true);
-		$query->select('status.*')
-			->from('#__fgbusupport_status as status ');
-			
+		$query
+			->select('status.id')
+			->select('status.code')
+			->select('status.name')
+			->select('status.color')
+			->from('#__fgbusupport_status status');
 		
+		$query
+			->select('Count(issue.id) countissue')
+			->leftJoin('#__fgbusupport_issue issue on issue.supp_status_id = status.code')
+			->group('status.name ,status.id ,status.color ,status.code');
+		$query
+			->order('id','desc');
 		return $query;
 	}/**/
 }

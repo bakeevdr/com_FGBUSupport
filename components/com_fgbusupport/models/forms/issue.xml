@@ -30,12 +30,30 @@
 			label="Раздел"
 			required="true"
 			class="form-control"
-			key_field="id"
+			key_field="supp_modul_id"
 			value_field="changed_name"
 			default=""
-			query="SELECT id, changed_name FROM #__fgbusupport_module where state=1"
+			query="SELECT supp_modul_id, changed_name FROM #__fgbusupport_module where state=1"
 		>
 			<option value=""></option>
 		</field>
+		<field 
+			name="file1"
+			type="file"
+			label=""
+			description=""
+		/>
+		<field 
+			name="file2"
+			type="file"
+			label=""
+			description=""
+		/>
+		<field
+			name="file3"
+			type="file"
+			label=""
+			description=""
+		/>
 	</fieldset>
 </form>

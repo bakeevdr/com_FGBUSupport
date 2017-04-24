@@ -24,19 +24,22 @@ class FgbusupportModelIssues extends JModelList
 			foreach ($items as $items_K => $item)
 				$supp_ID["mas_issue_id"][] = $item->supp_id;
 		}
-		$Answer = FgbusupportHelperQuery::getsupport($supp_ID, 'issue_info_list','GET');
-		if (!empty($Answer) && (is_array($items))){
-			foreach ($items as $item) {
-				foreach ($Answer as $Answer_V) {
-					if ($item -> supp_id == $Answer_V -> id) {
-						if ($item -> supp_status_id !== $Answer_V -> status_id) {
-							$item -> supp_status = $Answer_V -> status;
-							$item -> supp_date_end = $Answer_V -> date_end;
-							$db->setQuery("Update #__fgbusupport_issue set supp_status_id ='".$Answer_V -> status_id."', supp_date_end='".$Answer_V -> date_end."' where id = ".$item -> id);
-							$db->execute();
+		if (!Empty($supp_ID["mas_issue_id"])){
+			$Answer = FgbusupportHelperQuery::getsupport($supp_ID, 'issue_info_list','GET');
+			if (!empty($Answer) && (is_array($items))){
+				foreach ($items as $item) {
+					foreach ($Answer as $Answer_V)
+						if (empty($Answer_V -> error)){
+							if ($item -> supp_id == $Answer_V -> id) {
+								if ($item -> supp_status_id !== $Answer_V -> status_id) {
+									$item -> supp_status = $Answer_V -> status;
+									$item -> supp_date_end = $Answer_V -> date_end;
+									$db->setQuery("Update #__fgbusupport_issue set supp_status_id ='".$Answer_V -> status_id."', supp_module_id ='".$Answer_V -> module_id."', supp_date_end='".$Answer_V -> date_end."' where id = ".$item -> id);
+									$db->execute();
+								}
+								break;
+							}
 						}
-						break;
-					}
 				}
 			}
 		}

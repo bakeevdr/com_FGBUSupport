@@ -6,7 +6,7 @@ class FgbusupportViewStatuses extends JViewLegacy
 	
 	function display($tpl = null)
 	{
-		$this->items 		= $items = $this->get('Items');;
+		$this->items 		= $items = $this->get('Items');
 		$this->addToolBar();
 		$this->sidebar = JHtmlSidebar::render();
 		parent::display($tpl);

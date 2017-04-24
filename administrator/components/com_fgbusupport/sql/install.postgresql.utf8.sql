@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS #__fgbusupport_issue (
 	supp_date_create	VARCHAR(20),
 	supp_date_end		VARCHAR(20),
 	supp_status_id		VARCHAR(30),
+	supp_module_id		integer,
 	CONSTRAINT #__fgbusupport_issue_pkey PRIMARY KEY(id)
 );
 

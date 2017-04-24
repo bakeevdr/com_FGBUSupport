@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields name="filter" >
+		<field
+			name="search"
+			type="text"
+			description="JSEARCH_FILTER"
+			hint="JSEARCH_FILTER"
+		/>
+		<field
+			name="status"
+			type="sql"
+			label="Статус рассмотрения"
+			query="SELECT code, name FROM #__fgbusupport_status order by id"
+			key_field="code" 
+			value_field="name" 
+			onchange="this.form.submit();"
+			>
+			<option value=""> -= Статус рассмотрения =- </option>
+			<option value="-1"> -= Все обращения =- </option>
+		</field>
+		<field
+			name="module"
+			type="sql"
+			label="Модуль"
+			query="SELECT id, changed_name FROM #__fgbusupport_module order by id"
+			key_field="id" 
+			value_field="changed_name" 
+			onchange="this.form.submit();"
+			>
+			<option value=""> -= Модуль (Раздел) =- </option>
+		</field>
+		<field
+			name="user"
+			type="sql"
+			label="Пользователь"
+			query="SELECT distinct us.id, us.name FROM #__fgbusupport_issue issue inner join #__users us on issue.user_id=us.id"
+			key_field="id" 
+			value_field="name" 
+			onchange="this.form.submit();"
+			>
+			<option value=""> -= Пользователь =- </option>
+		</field>
+	</fields>
+	<fields name="list">
+		<field
+			name="limit"
+			type="limitbox"
+			label="COM_BANNERS_LIST_LIMIT"
+			class="input-mini"
+			default="25"
+			onchange="this.form.submit();"
+		/>
+	</fields>
+</form>

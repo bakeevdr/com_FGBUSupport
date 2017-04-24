@@ -91,7 +91,12 @@ class FgbusupportModelAnswer extends JModelItem
 				$data = $db->loadObject();
 				if (!empty($data)){
 					$data-> support = FgbusupportHelperQuery::getsupport(array('number_issue' => $data->supp_num), 'issue_info','GET');
-				}
+					if ($data -> supp_status_id !== $data-> support -> status_id)
+						{
+						$db->setQuery("Update #__fgbusupport_issue set supp_status_id ='".$data-> support -> status_id . "', supp_date_end='".$data-> support -> date_end . "' where id = ".$data -> id);
+						$db->execute();
+					}
+				};
 				$this->_item[$pk] = $data;
 			}
 			catch (Exception $e){

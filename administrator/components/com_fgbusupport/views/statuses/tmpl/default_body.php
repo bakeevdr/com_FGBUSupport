@@ -7,5 +7,6 @@
 			<td><span class="label" style="background-color:<?php echo $item->color; ?>"><?php echo $item->name; ?></span></td>
 			<td><?php echo $item->code; ?></td>
 			<td><?php echo $item->color; ?></td>
+			<td><?php echo $item->countissue; ?></td>
 		</tr>
 	<?php endforeach; ?>

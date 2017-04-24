@@ -12,7 +12,7 @@ $canEditOwn = true;//$user->authorise('core.edit.own',   'com_contact.category.'
 		<tr class="row<?php echo $i % 2; ?>">
 			<td><?php echo $item->id; ?></td>
 			<td><?php //echo (($item->id !=1)?JHtml::_('grid.id', $i, $item->id):''); ?></td>
-			<td><?php echo $item->caption; ?></td>
+			<td><a target="_blank" href="<?php Echo $this->URL."/dashboard/search_issue?supportca=6&number_issue_id=".$item->supp_num ?>"><?php echo $item->caption; ?></a></td>
 			<td class="small hidden-phone hidden-tablet">
 				<?php if (!empty($item->user_id)) : ?>
 					<a href="<?php echo JRoute::_('index.php?option=com_users&task=user.edit&id=' . $item->user_id); ?>"><?php echo $item->user_name; ?></a>

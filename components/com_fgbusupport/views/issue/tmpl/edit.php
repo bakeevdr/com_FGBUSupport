@@ -13,7 +13,7 @@ JHtml::_('behavior.calendar');
 	}
 </script>
 
-<form action="<?php echo JRoute::_('index.php?option=com_fgbusupport&id=' . (int) $this->item->id); ?>" method="post" name="adminForm" id="adminForm"  class="form-validate">
+<form action="<?php echo JRoute::_('index.php?option=com_fgbusupport&id=' . (int) $this->item->id); ?>" method="post" name="adminForm" id="adminForm"  class="form-validate" enctype="multipart/form-data">
 	<div class="btn-toolbar">
 		<div class="btn-group">
 			<button type="button" class="btn btn-primary" onclick="Joomla.submitbutton('Issue.save')">

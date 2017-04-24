@@ -1,0 +1,1 @@
+ALTER TABLE #__fgbusupport_issue ADD COLUMN supp_module_id	integer;

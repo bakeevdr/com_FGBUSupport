@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS `#__fgbusupport_issue` (
 	`supp_date_create`	VARCHAR(20)													COMMENT 'Дата создания на Supporte',
 	`supp_date_end`		VARCHAR(20)													COMMENT 'Дата создания на Supporte',
 	`supp_status_id`	VARCHAR(30)													COMMENT 'Статус на Supporte',
+	`supp_module_id`	int(11)														COMMENT 'Модуль на Supporte',
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Вопросы';
 
@@ -34,7 +35,7 @@ insert into #__fgbusupport_status (code, name, color) values
 	('issue_implemented','Реализовано','#999');
 
 CREATE TABLE IF NOT EXISTS #__fgbusupport_module (
-	`id`			int(11)			NOT NULL,
+	`id`				int(11)			NOT NULL,
 	`changed_name`		VARCHAR(100),
 	`state`				tinyint(3),
 	`supp_modul_id`		int(11)			NOT NULL,
