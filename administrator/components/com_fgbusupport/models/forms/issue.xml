@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset
+		name="common"
+		label="Общие"
+	>
+		<field
+			name="id"
+			type="hidden"
+		/>
+		<field
+			name="caption"
+			type="text"
+			label="Заголовок обращения"
+			size="40"
+			class="inputbox"
+			required="true"
+		/>
+		
+		<field
+			name="supp_id"
+			type="text"
+			label="Support (ID)"
+			size="40"
+			class="inputbox"
+			required="true"
+		/>
+	</fieldset>
+</form>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension 	type="component"	version="3.0"	method="upgrade">
+	<name>COM_FGBUSUPPORT</name> 
+	<creationDate>2017.04.04</creationDate> <!-- Дата создания -->
+	<author>Бакеев Д.Р.</author> <!-- Автор -->
+	<authorEmail>BakeevDR@Gmail.com</authorEmail> <!-- Почта -->
+	<copyright>Copyright (C) 2017 BakeevDR</copyright> <!-- Копирайт -->
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license> <!-- Лицензия -->
+	<version>2017.04.16</version>
+	<description>
+		ФГБУ "ФКП Росреестра" по Республике Башкортостан
+	</description>
+	
+	<!-- Медиа файлы -->
+	<media destination="fgbusupport" folder="media">
+		<folder>images</folder>
+		<folder>js</folder>
+	</media> 
+	
+	<!-- Файлы сайта -->
+	<files folder="site">
+		<folder>controllers</folder>
+		<folder>helpers</folder>
+		<folder>models</folder>
+		<folder>views</folder>
+		<filename>controller.php</filename>
+		<filename>index.html</filename>
+		<filename>fgbusupport.php</filename>
+	</files>
+	
+	<!-- Языковой файл сайта -->
+	<languages folder="site">
+		<language tag="ru-RU">language/ru-RU.com_fgbusupport.ini</language>
+		<language tag="ru-RU">language/ru-RU.com_fgbusupport.sys.ini</language>
+	</languages>
+	
+	<!-- Файлы административной части -->
+	<administration>
+		<menu>COM_FGBUSUPPORT</menu> 
+		<submenu>
+			<menu img="media/fgbusupport/images/48x48/menu_issue.png"			view="issues">COM_FGBUSUPPORT_ISSUES</menu>
+			<menu img="media/fgbusupport/images/48x48/menu_status.png"			view="statuses">COM_FGBUSUPPORT_STATUSES</menu>
+			<menu img="media/fgbusupport/images/48x48/menu_module.png"			view="modules">COM_FGBUSUPPORT_MODULES</menu>
+			<menu img="media/fgbusupport/images/48x48/menu_info.png" 			view="info">COM_FGBUSUPPORT_INFO</menu>
+		</submenu>
+		<files folder="admin">
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>models</folder>
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
+			<filename>controller.php</filename>
+			<filename>fgbusupport.php</filename>
+			<filename>index.html</filename>
+		</files>
+		<languages folder="admin">
+			<language tag="ru-RU">language/ru-RU.com_fgbusupport.ini</language>
+			<language tag="ru-RU">language/ru-RU.com_fgbusupport.sys.ini</language>
+		</languages>
+	</administration>
+	
+	<!-- Установка/обновление компонента -->
+	<install> 
+		<sql>
+			<file driver="mysql"		charset="utf8">sql/install.mysql.utf8.sql</file>
+			<file driver="postgresql"	charset="utf8">sql/install.postgresql.utf8.sql</file>
+		</sql>
+	</install>
+ 	<uninstall> 
+		<sql>
+			<file driver="mysql"		charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+			<file driver="postgresql"	charset="utf8">sql/uninstall.postgresql.utf8.sql</file>
+		</sql>
+	</uninstall>
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates</schemapath>
+		</schemas>
+	</update>
+	<updateservers>
+		<server type="collection" priority="1" name="FGBU Update Service">http://update.kadastr.ru/joomla/update.xml</server>
+	</updateservers>
+</extension>

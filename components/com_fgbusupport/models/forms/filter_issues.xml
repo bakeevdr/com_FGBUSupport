@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields name="filter">
+		<field
+			name="search"
+			type="text"
+			description="Поиск по заголовку обращения и по тексту обращения"
+			hint="Искать"
+			class="btn btn-default input-sm"
+		/>
+	</fields>
+
+	<fields name="list">
+		<field
+			name="limit"
+			type="limitbox"
+			label="COM_BANNERS_LIST_LIMIT"
+			class="form-control input-sm"
+			onchange="this.form.submit();"
+		/>
+	</fields>
+</form>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<form name="answer">
+	<fieldset name="new">
+		<field
+			name="message"
+			type="textarea"
+			label="Уточнение"
+			required="true"
+			class="form-control"
+			rows="3"
+		/>
+
+	</fieldset>
+</form>

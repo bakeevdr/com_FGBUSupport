@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<form name="issue">
+	<fieldset name="new">
+		<field
+			name="id"
+			type="hidden"
+		/>
+		<field
+			name="caption"
+			type="text"
+			label="Заголовок обращения"
+			required="true"
+			maxlength='200'
+			default=""
+			class="form-control"
+		/>
+		<field
+			name="topic"
+			type="textarea"
+			label="Текст обращения"
+			required="true"
+			rows="10"
+			default=""
+			class="form-control"
+		/>
+		
+		<field
+			name="module"
+			type="sql"
+			label="Раздел"
+			required="true"
+			class="form-control"
+			key_field="id"
+			value_field="changed_name"
+			default=""
+			query="SELECT id, changed_name FROM #__fgbusupport_module where state=1"
+		>
+			<option value=""></option>
+		</field>
+	</fieldset>
+</form>

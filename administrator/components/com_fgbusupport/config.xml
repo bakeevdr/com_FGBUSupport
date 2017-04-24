@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<fields>
+		<fieldset name="common" label="Общие">
+			<field
+				name="EnableRequest"
+				type="radio"
+				label="Подача обращений"
+				description="Разрешить подачу новых обращений и уточнения на существующие обращения"
+				default="1"
+				class="btn-group btn-group-yesno"
+				>
+				<option value="1">Разрешить</option>
+				<option value="0">Запретить</option>
+			</field>
+			<field
+				name="SupportProtocol"
+				type="list"
+				label="Протокол сайта поддержки"
+				default="https"
+				required="true"
+				>
+				<option value="http">http://</option>
+				<option value="https">https://</option>
+			</field>
+			<field
+				name="SupportURL"
+				type="text"
+				label="Адрес сайта поддержки"
+				required="true"
+			/>
+			<field
+				name="SupportID"
+				type="text"
+				label="ID раздела"
+				required="true"
+			/>
+		</fieldset>
+		
+		<fieldset
+			name="permissions"
+			label="JCONFIG_PERMISSIONS_LABEL"
+			description="JCONFIG_PERMISSIONS_DESC"
+		>
+		<field
+				name="rules"
+				type="rules"
+				label="JCONFIG_PERMISSIONS_LABEL"
+				class="inputbox"
+				validate="rules"
+				filter="rules"
+				component="com_fgbusupport"
+				section="component"
+			/>
+		</fieldset>
+	</fields>
+</config>
